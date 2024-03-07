@@ -284,7 +284,7 @@ var MultiPipeline = new Class({
 
         this.set1iv('uMainSampler', renderer.textureIndexes);
         this.set2f('uResolution', renderer.width, renderer.height);
-        this.set1i('uRoundPixels', renderer.config.roundPixels ? 1 : 0);
+        this.set1i('uRoundPixels', 1);
     },
 
     /**
@@ -415,7 +415,7 @@ var MultiPipeline = new Class({
 
         this.manager.preBatch(gameObject);
 
-        this.currentShader.set1i('uRoundPixels', camera.roundPixels ? 1 : 0);
+        this.currentShader.set1i('uRoundPixels', 1);
 
         this.batchQuad(gameObject, quad[0], quad[1], quad[2], quad[3], quad[4], quad[5], quad[6], quad[7], u0, v0, u1, v1, tintTL, tintTR, tintBL, tintBR, gameObject.tintFill, texture, unit);
 
@@ -588,7 +588,7 @@ var MultiPipeline = new Class({
             this.manager.preBatch(gameObject);
         }
 
-        this.currentShader.set1i('uRoundPixels', camera.roundPixels ? 1 : 0);
+        this.currentShader.set1i('uRoundPixels', 1);
 
         this.batchQuad(gameObject, quad[0], quad[1], quad[2], quad[3], quad[4], quad[5], quad[6], quad[7], u0, v0, u1, v1, tintTL, tintTR, tintBL, tintBR, tintEffect, texture, textureUnit);
 
@@ -717,7 +717,7 @@ var MultiPipeline = new Class({
 
         var tint = this.fillTint;
 
-        this.currentShader.set1i('uRoundPixels', 0);
+        this.currentShader.set1i('uRoundPixels', 1);
 
         this.batchTri(null, tx0, ty0, tx1, ty1, tx2, ty2, 0, 0, 1, 1, tint.TL, tint.TR, tint.BL, 2);
     },
@@ -810,7 +810,7 @@ var MultiPipeline = new Class({
         polygonIndexArray = Earcut(polygonCache);
         length = polygonIndexArray.length;
 
-        this.currentShader.set1i('uRoundPixels', 0);
+        this.currentShader.set1i('uRoundPixels', 1);
 
         for (var index = 0; index < length; index += 3)
         {
@@ -965,7 +965,7 @@ var MultiPipeline = new Class({
         var tintBL = tint.BL;
         var tintBR = tint.BR;
 
-        this.currentShader.set1i('uRoundPixels', 0);
+        this.currentShader.set1i('uRoundPixels', 1);
 
         //  TL, BL, BR, TR
         this.batchQuad(null, tlX, tlY, blX, blY, brX, brY, trX, trY, 0, 0, 1, 1, tintTL, tintTR, tintBL, tintBR, 2);
