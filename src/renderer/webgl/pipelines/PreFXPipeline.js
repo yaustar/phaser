@@ -256,7 +256,7 @@ var PreFXPipeline = new Class({
         this.currentShader = this.copyShader;
 
         this.set2f('uResolution', renderer.width, renderer.height);
-        this.set1i('uRoundPixels', renderer.config.roundPixels);
+        this.set1i('uRoundPixels', renderer.config.roundPixels ? 1 : 0);
     },
 
     /**
@@ -370,7 +370,7 @@ var PreFXPipeline = new Class({
 
         this.set1i('uMainSampler', 0);
         this.set2f('uResolution', renderer.width, renderer.height);
-        this.set1i('uRoundPixels', renderer.config.roundPixels);
+        this.set1i('uRoundPixels', renderer.config.roundPixels ? 1 : 0);
 
         this.flipProjectionMatrix(true);
 
@@ -517,7 +517,7 @@ var PreFXPipeline = new Class({
 
         this.set1i('uMainSampler', 0);
         this.set2f('uResolution', renderer.width, renderer.height);
-        this.set1i('uRoundPixels', renderer.config.roundPixels);
+        this.set1i('uRoundPixels', renderer.config.roundPixels ? 1 : 0);
 
         sprite.preFX.onFXCopy(this);
 
